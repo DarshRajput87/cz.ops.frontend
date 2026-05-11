@@ -50,3 +50,4 @@ export function PermissionProvider({ children }) {
 export function usePermission() {
   return useContext(PermissionContext)
 }
+

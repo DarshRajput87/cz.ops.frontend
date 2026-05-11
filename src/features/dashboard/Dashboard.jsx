@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import http from '../../services/http'
 import { useNavigate } from 'react-router-dom'
 import {
   AreaChart,
@@ -13,7 +13,6 @@ import {
 import DashboardLayout from '../../layouts/DashboardLayout'
 import logo from '../../assets/Logo.png'
 
-const API = import.meta.env.VITE_API_URL || '/api'
 
 const STATS_CONFIG = [
   {
@@ -134,8 +133,15 @@ export default function Dashboard() {
   useEffect(() => {
     async function fetchStats() {
       try {
-        const { data } = await axios.get(`${API}/dashboard/stats`)
-        setStats(data)
+        const { data } = await http.get('/dashboard/stats')
+        setStats({
+          activeChargers:  data.activeChargers  ?? 0,
+          bookingsToday:   data.bookingsToday   ?? 0,
+          energyDelivered: data.energyDelivered ?? 0,
+          networkUptime:   data.networkUptime   ?? 0,
+          recentBookings:  data.recentBookings  ?? [],
+          uptimeHistory:   data.uptimeHistory   ?? [],
+        })
       } catch (err) {
         console.error('Failed to fetch dashboard stats:', err)
       } finally {

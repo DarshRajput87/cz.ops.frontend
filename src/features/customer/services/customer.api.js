@@ -1,20 +1,16 @@
-import axios from 'axios'
+import http from '../../../services/http'
 
-const BASE = '/api/customers'
-
-function auth() {
-  return { Authorization: `Bearer ${localStorage.getItem('cn_token')}` }
-}
+const BASE = '/customers'
 
 const api = {
-  dashboard:          (params)      => axios.get(`${BASE}/dashboard`,               { params, headers: auth() }),
-  list:               (params)      => axios.get(`${BASE}/list`,                    { params, headers: auth() }),
-  get:                (id)          => axios.get(`${BASE}/${id}`,                   { headers: auth() }),
-  bookings:           (id, params)  => axios.get(`${BASE}/${id}/bookings`,          { params, headers: auth() }),
-  vehicles:           (id, params)  => axios.get(`${BASE}/${id}/vehicles`,          { params, headers: auth() }),
-  walletTransactions: (id, params)  => axios.get(`${BASE}/${id}/wallet-transactions`,{ params, headers: auth() }),
-  chargecoins:        (id, params)  => axios.get(`${BASE}/${id}/chargecoins`,       { params, headers: auth() }),
-  sessionHistory:     (id, params)  => axios.get(`${BASE}/${id}/session-history`,   { params, headers: auth() }),
+  dashboard:          (params)      => http.get(`${BASE}/dashboard`,                { params }),
+  list:               (params)      => http.get(`${BASE}/list`,                     { params }),
+  get:                (id)          => http.get(`${BASE}/${id}`),
+  bookings:           (id, params)  => http.get(`${BASE}/${id}/bookings`,           { params }),
+  vehicles:           (id, params)  => http.get(`${BASE}/${id}/vehicles`,           { params }),
+  walletTransactions: (id, params)  => http.get(`${BASE}/${id}/wallet-transactions`,{ params }),
+  chargecoins:        (id, params)  => http.get(`${BASE}/${id}/chargecoins`,        { params }),
+  sessionHistory:     (id, params)  => http.get(`${BASE}/${id}/session-history`,    { params }),
 }
 
 export default api

@@ -1,51 +1,46 @@
-import axios from 'axios'
+import http from '../../../services/http'
 
-const BASE         = '/api/tickets'
-const REVIEWS_BASE = '/api/reviews'
-
-function authHeaders() {
-  const token = localStorage.getItem('cn_token')
-  return { Authorization: `Bearer ${token}` }
-}
+const BASE         = '/tickets'
+const REVIEWS_BASE = '/reviews'
 
 const api = {
   list: (params) =>
-    axios.get(`${BASE}/list`, { params, headers: authHeaders() }),
+    http.get(`${BASE}/list`, { params }),
 
   agents: () =>
-    axios.get(`${BASE}/agents`, { headers: authHeaders() }),
+    http.get(`${BASE}/agents`),
 
   get: (id) =>
-    axios.get(`${BASE}/${id}`, { headers: authHeaders() }),
+    http.get(`${BASE}/${id}`),
 
   create: (data) =>
-    axios.post(`${BASE}/create`, data, { headers: authHeaders() }),
+    http.post(`${BASE}/create`, data),
 
   updateStatus: (id, status, note) =>
-    axios.patch(`${BASE}/${id}/status`, { status, note }, { headers: authHeaders() }),
+    http.patch(`${BASE}/${id}/status`, { status, note }),
 
   assign: (id, assigned_to) =>
-    axios.patch(`${BASE}/${id}/assign`, { assigned_to }, { headers: authHeaders() }),
+    http.patch(`${BASE}/${id}/assign`, { assigned_to }),
 
   resolve: (id, resolution_note) =>
-    axios.post(`${BASE}/${id}/resolve`, { resolution_note }, { headers: authHeaders() }),
+    http.post(`${BASE}/${id}/resolve`, { resolution_note }),
 
   stats: () =>
-    axios.get(`${BASE}/dashboard/stats`, { headers: authHeaders() }),
+    http.get(`${BASE}/dashboard/stats`),
 
   analyze: (raw_feedback, autoCreate = false) =>
-    axios.post(`${BASE}/analyze`, { raw_feedback, autoCreate }, { headers: authHeaders() }),
+    http.post(`${BASE}/analyze`, { raw_feedback, autoCreate }),
 
   uploadFiles: (formData, onProgress) =>
-    axios.post(`${BASE}/upload`, formData, {
-      headers: { ...authHeaders(), 'Content-Type': 'multipart/form-data' },
+    http.post(`${BASE}/upload`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
       onUploadProgress: (e) => onProgress?.(Math.round((e.loaded * 100) / e.total)),
     }),
 
   reviews: {
-    list:    (params) => axios.get(REVIEWS_BASE,           { params, headers: authHeaders() }),
-    stats:   ()       => axios.get(`${REVIEWS_BASE}/stats`, { headers: authHeaders() }),
-    process: ()       => axios.post(`${REVIEWS_BASE}/process`, {}, { headers: authHeaders() }),
+    list:    (params) => http.get(REVIEWS_BASE,            { params }),
+    stats:   ()       => http.get(`${REVIEWS_BASE}/stats`),
+    process: ()       => http.post(`${REVIEWS_BASE}/process`, {}),
   },
 }
 

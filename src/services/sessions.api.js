@@ -1,13 +1,12 @@
-import axios from 'axios'
+import http from './http'
 
-const BASE = '/api/sessions'
-const auth = () => ({ Authorization: `Bearer ${localStorage.getItem('cn_token')}` })
+const BASE = '/sessions'
 
 export const sessionsApi = {
-  getLive:         (params) => axios.get(`${BASE}/live`,               { params, headers: auth() }),
-  getInprogress:   (params) => axios.get(`${BASE}/inprogress`,         { params, headers: auth() }),
-  getFaulty:       (params) => axios.get(`${BASE}/faulty`,             { params, headers: auth() }),
-  getById:         (id)     => axios.get(`${BASE}/${id}`,              { headers: auth() }),
-  resolve:         (id)     => axios.post(`${BASE}/${id}/resolve`, {}, { headers: auth() }),
-  generateInvoice: (id)     => axios.post(`${BASE}/${id}/resolve`, {}, { headers: auth() }),
+  getLive:         (params) => http.get(`${BASE}/live`,               { params }),
+  getInprogress:   (params) => http.get(`${BASE}/inprogress`,         { params }),
+  getFaulty:       (params) => http.get(`${BASE}/faulty`,             { params }),
+  getById:         (id)     => http.get(`${BASE}/${id}`),
+  resolve:         (id)     => http.post(`${BASE}/${id}/resolve`, {}),
+  generateInvoice: (id)     => http.post(`${BASE}/${id}/resolve`, {}),
 }

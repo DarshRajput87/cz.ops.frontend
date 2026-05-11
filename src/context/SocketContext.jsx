@@ -11,28 +11,23 @@ export function SocketProvider({ children }) {
   const [hasUnread, setHasUnread] = useState(false)
 
   useEffect(() => {
+    const userStr = localStorage.getItem('cn_user')
+    if (!userStr) return
+
     const socketUrl = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000'
     const newSocket = io(socketUrl)
     setSocket(newSocket)
 
     newSocket.on('connect', () => {
-      console.log('Socket connected')
-      // Join role room if user exists
-      const userStr = localStorage.getItem('cn_user')
-      if (userStr) {
-        try {
-          const user = JSON.parse(userStr)
-          newSocket.emit('join_role_room', user.role)
-        } catch (e) {}
-      }
+      try {
+        const user = JSON.parse(userStr)
+        newSocket.emit('join_role_room', user.role)
+      } catch (e) {}
     })
 
     newSocket.on('new_ticket', (data) => {
-      console.log('New ticket notification:', data)
       setNotifications((prev) => [data, ...prev])
       setHasUnread(true)
-      
-      // Optionally play a sound or show a toast
       if (Notification.permission === 'granted') {
         new Notification('New Ticket', { body: data.message })
       }
@@ -41,9 +36,7 @@ export function SocketProvider({ children }) {
     return () => newSocket.close()
   }, [])
 
-  const markAsRead = () => {
-    setHasUnread(false)
-  }
+  const markAsRead = () => setHasUnread(false)
 
   return (
     <SocketContext.Provider value={{ socket, notifications, hasUnread, markAsRead }}>

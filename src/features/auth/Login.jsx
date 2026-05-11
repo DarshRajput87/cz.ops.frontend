@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import http from '../../services/http'
 import AuthLayout from '../../layouts/AuthLayout'
 import { Input, Button, Alert } from '../../components/ui'
 import logo from '../../assets/Logo.png'
 import { usePermission } from '../../context/PermissionContext'
 
-const API = import.meta.env.VITE_API_URL || '/api'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -40,7 +39,7 @@ export default function Login() {
     setLoading(true)
     setApiError('')
     try {
-      const { data } = await axios.post(`${API}/auth/login`, form)
+      const { data } = await http.post('/auth/login', form)
       localStorage.setItem('cn_token', data.token)
       localStorage.setItem('cn_user', JSON.stringify(data.user))
       sessionStorage.setItem('cn_show_welcome', '1')

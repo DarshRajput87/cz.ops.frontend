@@ -35,7 +35,7 @@ export default function CustomerDashboard() {
                   onClick={() => setDays(d)}
                   className={`px-3 py-1 text-xs font-medium rounded-md transition-colors
                     ${days === d
-                      ? 'bg-brand-accent text-slate-950'
+                      ? 'bg-brand-accent text-white'
                       : 'text-slate-400 hover:text-white'
                     }`}
                 >
@@ -45,7 +45,7 @@ export default function CustomerDashboard() {
             </div>
             <button
               onClick={() => navigate('/customers/list')}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-brand-accent text-slate-950 hover:opacity-90 transition-opacity"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-brand-accent text-white hover:opacity-90 transition-opacity"
             >
               <List className="w-4 h-4" />
               All Customers

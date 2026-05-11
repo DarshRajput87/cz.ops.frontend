@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --color-surface:           #15212B;
+    --color-surface:           #ffffff;
     --color-surface-elevated:  #1B2A38;
     --color-surface-sunken:    #101A23;
     --color-surface-hover:     #243443;

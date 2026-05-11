@@ -93,7 +93,7 @@ export default function LiveSessions() {
             key={t.key}
             onClick={() => handleTab(t.key)}
             className={`px-5 py-2 text-sm font-semibold rounded-lg transition-all ${
-              tab === t.key ? 'bg-brand-accent text-surface-950' : 'text-slate-400 hover:text-white'
+              tab === t.key ? 'bg-brand-accent text-white' : 'text-slate-400 hover:text-white'
             }`}
           >
             {t.label}

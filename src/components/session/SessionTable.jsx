@@ -34,7 +34,7 @@ function PaginBtn({ onClick, disabled, active, children }) {
       disabled={disabled}
       className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition-colors ${
         active
-          ? 'bg-brand-accent text-surface-950 border-brand-accent'
+          ? 'bg-brand-accent text-white border-brand-accent'
           : 'text-slate-400 bg-surface-800 hover:bg-surface-700 border-surface-700'
       } disabled:opacity-40 disabled:cursor-not-allowed`}
     >

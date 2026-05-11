@@ -119,7 +119,7 @@ export default function ResolveSessionModal({ session, onClose, onResolved }) {
               <button
                 onClick={handleAction}
                 disabled={loading}
-                className="flex-1 px-4 py-2.5 text-sm font-black text-surface-950 bg-brand-accent hover:brightness-110 rounded-xl transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-2.5 text-sm font-black text-white bg-brand-accent hover:brightness-110 rounded-xl transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {loading && (
                   <span className="w-4 h-4 border-2 border-surface-950/30 border-t-surface-950 rounded-full animate-spin" />

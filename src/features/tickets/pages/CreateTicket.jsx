@@ -148,7 +148,7 @@ function FileUploadZone({ files, onAdd, onRemove, uploading, uploadProgress }) {
               <span>Uploading…</span><span>{uploadProgress}%</span>
             </div>
             <div className="h-1 bg-surface-700 rounded-full overflow-hidden">
-              <div className="h-full bg-[#00AEEF] rounded-full transition-all duration-300"
+              <div className="h-full bg-brand-accent rounded-full transition-all duration-300"
                    style={{ width: `${uploadProgress}%` }} />
             </div>
           </div>
@@ -197,7 +197,7 @@ function StepBadge({ n, label, active, done }) {
   return (
     <div className={`flex items-center gap-2 transition-opacity ${active ? 'opacity-100' : 'opacity-35'}`}>
       <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0
-        ${done ? 'bg-emerald-500 text-white' : active ? 'bg-[#00AEEF] text-white' : 'bg-surface-700 text-slate-500'}`}>
+        ${done ? 'bg-emerald-500 text-white' : active ? 'bg-brand-accent text-white' : 'bg-surface-700 text-slate-500'}`}>
         {done ? <Check size={12} strokeWidth={3} /> : n}
       </div>
       <span className={`text-xs font-medium hidden sm:block ${active ? 'text-white' : 'text-slate-600'}`}>{label}</span>
@@ -354,7 +354,7 @@ function AgentPicker({ selected, onSelect }) {
                 {/* Selection indicator */}
                 <div className={`w-4 h-4 rounded-full border flex items-center justify-center flex-shrink-0 transition-all
                   ${active
-                    ? 'bg-[#00AEEF] border-[#00AEEF]'
+                    ? 'bg-brand-accent border-brand-accent'
                     : 'border-surface-600 group-hover:border-surface-500'
                   }`}>
                   {active && <Check size={9} className="text-white" strokeWidth={3} />}
@@ -773,7 +773,7 @@ export default function CreateTicket() {
                 type="submit"
                 disabled={loading || uploading}
                 className="w-full flex items-center justify-center gap-2 py-3 text-sm font-bold
-                           text-white bg-[#00AEEF] rounded-2xl hover:bg-[#0099d6] transition-all
+                           text-white bg-brand-accent rounded-2xl hover:opacity-90 transition-all
                            disabled:opacity-40 disabled:cursor-not-allowed
                            shadow-[0_0_20px_rgba(0,174,239,0.3)] hover:shadow-[0_0_28px_rgba(0,174,239,0.5)]"
               >

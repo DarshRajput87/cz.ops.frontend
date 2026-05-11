@@ -99,7 +99,7 @@ export default function TicketAssignmentModal({ ticket, onClose, onAssign, loadi
                           <p className="text-xs text-slate-600 truncate">{agent.email}</p>
                         </div>
                         {active && (
-                          <div className="w-5 h-5 rounded-full bg-[#00AEEF] flex items-center justify-center flex-shrink-0">
+                          <div className="w-5 h-5 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0">
                             <Check size={11} className="text-white" strokeWidth={3} />
                           </div>
                         )}
@@ -122,8 +122,8 @@ export default function TicketAssignmentModal({ ticket, onClose, onAssign, loadi
               <button
                 type="submit"
                 disabled={!selected || loading}
-                className="flex-1 py-2.5 text-sm font-semibold text-white bg-[#00AEEF] rounded-xl
-                           hover:bg-[#0099d6] disabled:opacity-40 disabled:cursor-not-allowed transition-all
+                className="flex-1 py-2.5 text-sm font-semibold text-white bg-brand-accent rounded-xl
+                           hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed transition-all
                            flex items-center justify-center gap-2 shadow-[0_0_16px_rgba(0,174,239,0.3)]"
               >
                 {loading ? <Loader2 size={14} className="animate-spin" /> : <UserCheck size={14} />}

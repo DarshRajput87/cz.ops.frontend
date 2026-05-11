@@ -115,9 +115,8 @@ export default function CustomerReviews() {
             </button>
             <button onClick={handleProcess} disabled={processing || loading}
                     className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold
-                               bg-[#00AEEF] text-white hover:bg-[#0099d6] transition-all
-                               disabled:opacity-40 disabled:cursor-not-allowed
-                               shadow-[0_0_16px_rgba(0,174,239,0.3)]">
+                               bg-brand-accent text-white hover:opacity-90 transition-all
+                               disabled:opacity-40 disabled:cursor-not-allowed">
               {processing
                 ? <Loader2 size={14} className="animate-spin" />
                 : <Sparkles size={14} />

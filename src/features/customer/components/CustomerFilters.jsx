@@ -119,7 +119,7 @@ export default function CustomerFilters({ filters, onApply, onReset }) {
               </button>
               <button
                 onClick={apply}
-                className="flex-1 py-1.5 text-xs rounded-lg bg-brand-accent text-slate-950 font-semibold hover:opacity-90 transition-opacity"
+                className="flex-1 py-1.5 text-xs rounded-lg bg-brand-accent text-white font-semibold hover:opacity-90 transition-opacity"
               >
                 Apply
               </button>

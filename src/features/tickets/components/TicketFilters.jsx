@@ -81,8 +81,8 @@ export default function TicketFilters({ filters, onApply, onReset }) {
           <SlidersHorizontal size={14} />
           <span>Filters</span>
           {activeCount > 0 && (
-            <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-[#00AEEF] text-white text-[9px]
-                             font-bold rounded-full flex items-center justify-center shadow-[0_0_8px_rgba(0,174,239,0.5)]">
+            <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-brand-accent text-white text-[9px]
+                             font-bold rounded-full flex items-center justify-center">
               {activeCount}
             </span>
           )}
@@ -117,8 +117,8 @@ export default function TicketFilters({ filters, onApply, onReset }) {
                 </button>
                 <button
                   onClick={handleApply}
-                  className="px-5 py-2.5 text-sm font-semibold bg-[#00AEEF] text-white rounded-xl
-                             hover:bg-[#0099d6] transition-all shadow-[0_0_16px_rgba(0,174,239,0.3)]"
+                  className="px-5 py-2.5 text-sm font-semibold bg-brand-accent text-white rounded-xl
+                             hover:opacity-90 transition-all"
                 >
                   Apply
                 </button>

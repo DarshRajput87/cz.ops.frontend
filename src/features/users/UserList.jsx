@@ -65,7 +65,7 @@ function PermissionGrid({ selected, onChange, disabled }) {
               <span className={`w-4 h-4 rounded flex items-center justify-center flex-shrink-0 border transition-colors
                 ${on ? 'bg-brand-accent border-brand-accent' : 'border-slate-600'}`}
               >
-                {on && <Check className="w-2.5 h-2.5 text-slate-950" strokeWidth={3} />}
+                {on && <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />}
               </span>
               {label}
             </button>
@@ -249,7 +249,7 @@ function UserModal({ mode, user, onClose, onSave }) {
           <button
             onClick={handleSubmit}
             disabled={saving}
-            className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-brand-accent text-slate-950 hover:opacity-90 disabled:opacity-60 transition-all"
+            className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-brand-accent text-white hover:opacity-90 disabled:opacity-60 transition-all"
           >
             {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
             {isEdit ? 'Save Changes' : 'Create User'}
@@ -313,7 +313,7 @@ function PasswordModal({ user, onClose, onSave }) {
           <div className="flex gap-3 justify-end">
             <button type="button" onClick={onClose} className="px-4 py-2 text-sm text-slate-400 border border-slate-700 rounded-lg hover:text-white">Cancel</button>
             <button type="submit" disabled={saving}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-amber-400 text-slate-950 hover:opacity-90 disabled:opacity-60"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-amber-400 text-white hover:opacity-90 disabled:opacity-60"
             >
               {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
               Reset
@@ -364,7 +364,7 @@ export default function UserList() {
           </div>
           <button
             onClick={openCreate}
-            className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-brand-accent text-slate-950 hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-brand-accent text-white hover:opacity-90 transition-opacity"
           >
             <Plus className="w-4 h-4" />
             New User

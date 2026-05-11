@@ -77,7 +77,7 @@ export default function InprogressSessions() {
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => setResolveTarget(row)}
-                            className="px-3 py-1 text-xs font-semibold text-white bg-surface-800 hover:bg-brand-accent hover:text-surface-950 rounded-lg border border-surface-700 transition-colors"
+                            className="px-3 py-1 text-xs font-semibold text-white bg-surface-800 hover:bg-brand-accent hover:text-white rounded-lg border border-surface-700 transition-colors"
                           >
                             Resolve
                           </button>

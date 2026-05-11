@@ -11,7 +11,8 @@ export function SocketProvider({ children }) {
   const [hasUnread, setHasUnread] = useState(false)
 
   useEffect(() => {
-    const newSocket = io('http://localhost:5000')
+    const socketUrl = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000'
+    const newSocket = io(socketUrl)
     setSocket(newSocket)
 
     newSocket.on('connect', () => {
